@@ -4,6 +4,7 @@ import AppBar from './app/AppBar';
 
 // TODO Add exchange rates to the Redux store
 // TODO Add Sidebar
+// TODO Update readme file
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
