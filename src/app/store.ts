@@ -1,9 +1,11 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import currency from '../features/currency/currencySlice';
+import exchangeRate from '../features/exchangeRate/exchangeRateSlice';
 
 export const store = configureStore({
   reducer: {
     currency: currency,
+    exchangeRate: exchangeRate
   },
 });
 
