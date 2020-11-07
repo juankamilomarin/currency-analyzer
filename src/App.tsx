@@ -2,6 +2,9 @@ import React from 'react';
 import { makeStyles, Theme, createStyles, useTheme } from '@material-ui/core/styles';
 import AppBar from './app/AppBar';
 
+// TODO Add exchange rates to the Redux store
+// TODO Add Sidebar
+
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
             root: {
