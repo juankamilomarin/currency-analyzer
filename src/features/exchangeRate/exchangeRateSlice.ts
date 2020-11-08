@@ -1,5 +1,7 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { DateTime } from 'luxon';
 import { RootState } from '../../app/store';
+import { fetchAllByDate } from './exchangeRateApi';
 
 export type ExchangeRate = {
   originExchangeRateCode: string,
@@ -7,18 +9,33 @@ export type ExchangeRate = {
   value: number
 }
 
-interface State {
-  list: ExchangeRate[]
+interface ExchangeRateState {
+  list: ExchangeRate[],
+  loading: 'idle' | 'pending' | 'succeeded' | 'failed'
 }
 
-const initialState: State = {
-  list:  []
+const initialState: ExchangeRateState = {
+  list:  [],
+  loading: 'idle'
 };
+
+export const fetchExchangeRates = createAsyncThunk(
+  'exchangeRate/fetchExchangeRates',
+  async () => {
+    const response: { [key:string]: any } = await fetchAllByDate(DateTime.local())
+    return response.data
+  }
+)
 
 export const exchangeRateSlice = createSlice({
   name: 'exchangeRate',
   initialState,
   reducers: {
+  },
+  extraReducers: builder => {
+    builder.addCase(fetchExchangeRates.fulfilled, (state, { payload }) => {
+      state.list = payload
+    })
   }
 });
 
