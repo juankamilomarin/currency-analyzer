@@ -25,5 +25,6 @@ export const fetchAllByDate = async (date: DateTime): Promise<{ [key:string]: an
         }
       }),
     });
-    return await response.json();
+    const responseJson = await response.json()
+    return  responseJson.data.exchange_rate;
   }
