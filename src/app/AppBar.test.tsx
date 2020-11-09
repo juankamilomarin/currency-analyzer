@@ -1,6 +1,6 @@
 import React from 'react';
 import AppBar from './AppBar';
-import { render } from '@testing-library/react'; // TODO Add custom testUtils
+import { render } from '@testing-library/react';
 
 describe("AppBar", () => {
 
