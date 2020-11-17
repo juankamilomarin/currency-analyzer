@@ -6,6 +6,7 @@ React admin application which allows you to convert currencies and analyze the b
 
 * How to work with Material UI components
 * How to work redux
+* How to work with Typescript
 * How to use React Router
 * How to build GraphQL queries
 * How to work with Jest and React Testing Library for unit testing
