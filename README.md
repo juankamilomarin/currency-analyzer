@@ -1,4 +1,49 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+# Currency Analyzer
+
+React admin application which allows you to convert currencies and analyze the behavior during certain period of time.
+
+## Concepts you will see on this application
+
+* How to work with Material UI components
+* How to use React Router
+* How to build GraphQL queries
+* How to work with Jest and React Testing Library for unit testing
+* How to setup a simple Hasura local container
+
+## Technlogoies
+
+* Front end
+    * React 17.0.1 - Using [Create React App](https://github.com/facebook/create-react-app).
+    * React Router
+    * Material UI
+* Back end
+    * [Hasura](https://hasura.io/) - Instant GraphQL server with authorization for your data
+* Database
+    * Postgres 12.2
+
+## Instalation
+
+### Hasura + postgres
+
+<b>Step 1: Get docker-compose</b>
+
+Get docker-compose file from the hasura repo
+
+`curl https://raw.githubusercontent.com/hasura/graphql-engine/stable/install-manifests/docker-compose/docker-compose.yaml -o docker-compose.yml`
+
+<b>Step 2: Run Hasura GraphQL engine & Postgres</b>
+
+Run this command under your `hasura-postgres` folder
+
+`docker-compose up`
+
+<b>Step 3: Create the Shipment Tracking DB tables</b>
+
+Run the `create-tables.sql` file on the newly Postgres database. You can run this directly on Hasura (Go to http://localhost:8080/console/data/sql) or in your favorite DB IDE.
+ Once you run it, you should see the table exchange_rate in your database. Run the `inserts.sql` file to insert some records
+
+### React application
+Once your hasura instance is running simply run your React app by running `npm start`.
 
 ## Available Scripts
 
@@ -6,23 +51,23 @@ In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.<br />
+Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
+The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.<br />
+Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.<br />
+Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
+The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
@@ -37,8 +82,6 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Contributor
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Juan Camilo Marin
