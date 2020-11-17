@@ -1,4 +1,3 @@
-import { RootState } from "./app/store";
 import App from './App'
 import { useDispatch } from "react-redux";
 import { fetchExchangeRates } from "./features/exchangeRate/exchangeRateSlice";

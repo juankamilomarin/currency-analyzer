@@ -1,20 +1,8 @@
 import React from 'react'
-import { makeStyles, useTheme, createStyles, Theme } from '@material-ui/core/styles';
 import { useSelector } from 'react-redux';
 import { CustomTableProps, TableColumn } from '../../../common/components/types';
 import { selectLoading, selectList, selectSelectedDate } from '../exchangeRateSlice';
 import CustomTable from '../../../common/components/CustomTable';
-
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        root: {
-            position: 'fixed',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)'
-        },
-    })
-);
 
 export const TABLE_COLUMNS: TableColumn[] = [
     {
@@ -44,7 +32,6 @@ export const TABLE_COLUMNS: TableColumn[] = [
 ]
 
 const ExchangeRateTable = () => {
-    const classes = useStyles(useTheme());
     const exchangeRateList = useSelector(selectList); 
     const loading = useSelector(selectLoading);
     const selectedDate = useSelector(selectSelectedDate);
@@ -61,13 +48,9 @@ const ExchangeRateTable = () => {
     }
 
     return (
-        <div className={classes.root}>
-            {
-                <React.Fragment>
-                    <CustomTable {...tableProps} />
-                </React.Fragment>
-            }
-        </div>
+        <React.Fragment>
+            <CustomTable {...tableProps} />
+        </React.Fragment>
     )
 }
 

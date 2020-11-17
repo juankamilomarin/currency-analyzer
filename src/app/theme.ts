@@ -14,7 +14,7 @@ const baseTheme = {
     fontFamily: ['"Lato"', 'sans-serif'].join(','),
     useNextVariants: true
   },
-  spacing: 2
+  spacing: 4
 }
 
 export default createMuiTheme(baseTheme)

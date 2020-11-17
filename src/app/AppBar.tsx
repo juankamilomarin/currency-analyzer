@@ -1,31 +1,26 @@
-import React from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { 
-    AppBar as MuiAppBar, 
-    Toolbar, 
-    Typography, 
-    Theme,
-    createStyles
-} from '@material-ui/core';
+import React, { useState } from 'react';
+import Drawer from './Drawer';
+import Toolbar from './Toolbar';
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    appBar: {
-      zIndex: theme.zIndex.drawer + 1,
-    }
-  })
-);
+const AppBar = () => {
+  const [open, setOpen] = useState(true);
+  const [title, setTitle] = useState('Home');
 
-export default function AppBar(){
-    const classes = useStyles(useTheme());
+  const handleDrawerOpen = () => setOpen(true)
+  const handleDrawerClose = () => setOpen(false)
 
-    return (
-      <MuiAppBar position="fixed" className={classes.appBar}>
-        <Toolbar>
-          <Typography variant="h6" noWrap>
-            Currency Converter
-          </Typography>
-        </Toolbar>
-      </MuiAppBar>
-    )
+  const onItemClick = (title: string) => setTitle(title)
+
+  return (
+    <React.Fragment>
+      <Toolbar title={title} open={open} onMenuClick={handleDrawerOpen} />
+      <Drawer
+        open={open}
+        onMenuClick={handleDrawerClose}
+        onItemClick={onItemClick}
+      />
+    </React.Fragment>
+  )
 }
+
+export default AppBar;
