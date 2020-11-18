@@ -4,9 +4,9 @@ import { RootState } from '../../app/store';
 import { fetchAllByDate } from './exchangeRateApi';
 
 export type ExchangeRate = {
-  originExchangeRateCode: string,
-  targetExchangeRateCode: string,
-  value: number
+  origin: string,
+  target: string,
+  rate: number
 }
 
 interface ExchangeRateState {
