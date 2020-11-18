@@ -14,7 +14,7 @@ import MonetizationOn from '@material-ui/icons/MonetizationOn';
 import ListAlt from '@material-ui/icons/ListAlt';
 import ExchangeRateTable from '../features/exchangeRate/components/ExchangeRateTable';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-import Home from '../features/Home';
+import Converter from '../features/currencyConverter/components/ConverterContainer';
 
 const drawerWidth = 240;
 
@@ -88,9 +88,9 @@ const Drawer = ({ open, onMenuClick, onItemClick }: DrawerProps) => {
         </div>
         <Divider />
         <List>
-          <ListItem button component={Link} to="/home" onClick={() => onItemClick('Home')}>
+          <ListItem button component={Link} to="/converter" onClick={() => onItemClick('Converter')}>
             <ListItemIcon><MonetizationOn/></ListItemIcon>
-            <ListItemText primary={'Home'} />
+            <ListItemText primary={'Converter'} />
           </ListItem>
           <ListItem button component={Link} to="/exchange-rates" onClick={() => onItemClick('Exchange Rates')}>
             <ListItemIcon><ListAlt/></ListItemIcon>
@@ -100,8 +100,8 @@ const Drawer = ({ open, onMenuClick, onItemClick }: DrawerProps) => {
       </MuiDrawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <Route exact path="/"><Redirect to="/home"/></Route>
-        <Route exact path="/home" component={Home} />
+        <Route exact path="/"><Redirect to="/converter"/></Route>
+        <Route exact path="/converter" component={Converter} />
         <Route exact path="/exchange-rates" component={ExchangeRateTable} />
       </main>
     </React.Fragment>

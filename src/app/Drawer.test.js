@@ -9,7 +9,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import IconButton from '@material-ui/core/IconButton';
 import ExchangeRateTable from '../features/exchangeRate/components/ExchangeRateTable';
-import Home from '../features/Home';
+import Converter from '../features/currencyConverter/components/ConverterContainer';
 
 jest.mock('@material-ui/core/Drawer', () => jest.fn())
 jest.mock('@material-ui/core/List', () => jest.fn())
@@ -17,7 +17,7 @@ jest.mock('@material-ui/core/ListItem', () => jest.fn())
 jest.mock('@material-ui/core/ListItemText', () => jest.fn())
 jest.mock('@material-ui/core/IconButton', () => jest.fn())
 jest.mock('../features/exchangeRate/components/ExchangeRateTable', () => jest.fn())
-jest.mock('../features/Home', () => jest.fn())
+jest.mock('../features/currencyConverter/components/ConverterContainer', () => jest.fn())
 
 describe("Drawer", () => {
     const renderWithRouter = (component, history) => {
@@ -43,7 +43,7 @@ describe("Drawer", () => {
         ListItemText.mockImplementation((props) => <div data-testid={`list-item-text-${props.primary}`}></div>)
         IconButton.mockImplementation((props) => <div data-testid='icon-button'>{props.children}</div>)
         ExchangeRateTable.mockImplementation((props) => <div data-testid='exchange-rate-table'>{props.children}</div>)
-        Home.mockImplementation((props) => <div data-testid='home'>{props.children}</div>)
+        Converter.mockImplementation((props) => <div data-testid='converter'>{props.children}</div>)
     })
 
     afterEach(() => {
@@ -64,13 +64,13 @@ describe("Drawer", () => {
 
     it("should list menu options", () => {
         const { getByTestId } = renderWithRouter(<Drawer/>, createMemoryHistory())
-        expect(getByTestId('list-item-text-Home')).toBeInTheDocument()
+        expect(getByTestId('list-item-text-Converter')).toBeInTheDocument()
         expect(getByTestId('list-item-text-Exchange Rates')).toBeInTheDocument()
     });
 
-    it("should display home component", () => {
+    it("should display converter component", () => {
         const { getByTestId } = renderWithRouter(<Drawer/>, createMemoryHistory())
-        expect(getByTestId('home')).toBeInTheDocument()
+        expect(getByTestId('converter')).toBeInTheDocument()
     });
 
     it("should display exchange rates table", () => {

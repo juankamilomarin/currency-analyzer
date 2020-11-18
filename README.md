@@ -11,6 +11,8 @@ React admin application which allows you to convert currencies and analyze the b
 * How to build GraphQL queries
 * How to work with Jest and React Testing Library for unit testing
 * How to setup a simple Hasura local container
+* How to memoize functions
+* How to use container-display pattern
 
 ## Technlogoies
 
